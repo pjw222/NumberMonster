@@ -50,25 +50,25 @@ public class NumberField {
 		}
 		System.out.println();
 		a = sc.nextInt();
-
+		
 		int i1 = 0;
-		int j1 = 0;
 		int i2 = 0;
+		int j1 = 0;
 		int j2 = 0;
 		while(true)
 		{
-			for(int i=0;i<field.length;i++)
+			for(int i=0;i<a;i++)
 			{
-				for(int j=0;j<field[i].length;j++)
+				for(int j=0;j<a;j++)
 				{
-					if(field[i][j]==a*a)
-					{
-						start=field[i][j];
+					if(field[a-1][a-1]==field[i][j]) 
+					{						
+						i=i-1;
+						j=j-1;
 						i1 = i;
 						i2 = i;
 						j1 = j;
 						j2 = j;
-						
 					}
 				}
 				
@@ -81,22 +81,40 @@ public class NumberField {
 			{
 			case 8 : 
 			{
-				if(i1<0)continue;
+				if(i1==0)continue;
 				else
 				{
-					i2++;
+					i2--;
 				}
+				break;
 			}
 			case 2 :
 			{
-				if(i1>a)continue;
+				if(i1==a-1)continue;
 				else
 				{
 					i2++;
 				}
+				break;
+			}
+			case 4 :
+			{
+				if(j1==0)continue;
+				else
+				{
+					j2--;
+				}
+			}
+			case 6:
+			{
+				if(j1==a-1)continue;
+				else
+				{
+					j2++;
+				}
 			}
 
-			
+			}
 			for(int i = 0;i<field.length;i++)
 			{
 				for(int j=0;j<field[i].length;j++)
@@ -107,7 +125,6 @@ public class NumberField {
 				{
 					System.out.print("\n\n");			
 				}
-			}
 			}
 		
 		}
