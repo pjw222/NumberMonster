@@ -17,7 +17,8 @@ public class NumberField {
 		int i2 = 0;
 		int j1 = 0;
 		int j2 = 0;
-		System.out.println();
+		int tmp = 0;
+		System.out.println("숫자판 크기를 지정해주세요");
 		a = sc.nextInt();
 
 		int[][] field = new int[a][a];
@@ -44,7 +45,11 @@ public class NumberField {
 		{
 			for(int j=0;j<a;j++)
 			{
-				System.out.printf("#\t");	
+				System.out.printf("#\t");
+				if(field[i][j]==a*a)
+				{
+					System.out.printf("Player"+"   ");
+				}
 			}
 
 			if(a%a==0)
@@ -72,23 +77,34 @@ public class NumberField {
 				
 			}
 		
-			System.out.println();
+			System.out.println("상(8)하(2)좌(4)우(6) 를 입력해주세요");
 			move = sc.nextInt();
 			
 			switch(move)
 			{
 			case 8 : 
 			
-				if(i1==0)continue;
+				if(i1==0)
+				{
+					System.out.println("밖을 벗어날수 없습니다.");
+					System.out.println("다시 입력해주세요");
+					continue;
+				}
 				else 
 				{
+					
 					i2--;				
 				}
 				break;
 			
 			case 2 :
 			
-				if(i1==a-1)continue;
+				if(i1==a-1)		
+				{
+					System.out.println("밖을 벗어날수 없습니다.");
+					System.out.println("다시 입력해주세요");
+					continue;
+				}
 				else
 				{
 					i2++;
@@ -97,21 +113,32 @@ public class NumberField {
 			
 			case 4 :
 			
-				if(j1==0)continue;
+				if(j1==0)		
+				{
+					System.out.println("밖을 벗어날수 없습니다.");
+					System.out.println("다시 입력해주세요");
+					continue;
+				}
 				else
 				{
 					j2--;
 				}
-			
+				break;			
 			case 6:
 			
-				if(j1==a-1)continue;
+				if(j1==a-1) 
+				{
+					System.out.println("밖을 벗어날수 없습니다.");
+					System.out.println("다시 입력해주세요");
+					continue;
+				}
 				else
 				{
 					j2++;
 				}
-			
+				break;	
 			}
+			
 			field[i1][j1] = field[i2][j2];
 			field[i2][j2] = a*a;
 		
@@ -120,8 +147,13 @@ public class NumberField {
 			{
 				for(int j=0;j<field[i].length;j++)
 				{					
-					System.out.printf("#\t");	
-				}	
+					System.out.printf("#\t");
+					if(field[i][j]==a*a)
+					{
+						System.out.printf("Player"+"   ");
+					}
+				}
+				
 				if(a%a==0)
 				{
 					System.out.print("\n\n");			

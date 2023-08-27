@@ -2,5 +2,5 @@ package Game;
 
 public class NumberMonster {
 
-	private int monsterHp;
+	protected int monsterHp;
 }
