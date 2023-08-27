@@ -7,7 +7,7 @@ public class NumberField {
 	protected int start;
 	protected int move;
 	protected int check;
-	public void main(String [] args)
+	public void static main(String [] args)
 	{
 
 		Scanner sc = new Scanner(System.in);	
