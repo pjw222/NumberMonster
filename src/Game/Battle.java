@@ -3,7 +3,7 @@ package Game;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Battle {
+public class Battle  {
 	protected int myDice;
 	protected int monsterDice;
 	protected int playerHp;
