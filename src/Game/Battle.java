@@ -52,7 +52,7 @@ public class Battle {
 			System.out.println("다음턴을 가고싶으면 엔터를 눌러주세요");
 			count++;
 			
-			if(playerHp==0||playerHp<=0)
+			if(playerHp<=0)
 			{
 				System.out.println("패배했습니다.");
 				break;
