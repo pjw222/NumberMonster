@@ -6,8 +6,6 @@ import java.util.Scanner;
 public class Battle  {
 	protected int myDice;
 	protected int monsterDice;
-	protected int playerHp;
-	protected int monsterHp;
 	public static void main(String[]args)
 	{
 		int playerHp = 50;
