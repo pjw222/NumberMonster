@@ -72,63 +72,63 @@ public class Test {
 				System.out.print("\n\n");			
 			}
 		}
-		switch(move)
-		{
-		case 8 : 
-		
-			if(i1==0)
-			{
-				System.out.println("밖을 벗어날수 없습니다.");
-				System.out.println("다시 입력해주세요");
-				continue;
-			}
-			else 
-			{
-				
-				i2--;				
-			}
-			break;
-		
-		case 2 :
-		
-			if(i1==a-1)		
-			{
-				System.out.println("밖을 벗어날수 없습니다.");
-				System.out.println("다시 입력해주세요");
-				continue;
-			}
-			else
-			{
-				i2++;
-			}
-			break;
-		
-		case 4 :
-			if(j1==0)		
-			{
-				System.out.println("밖을 벗어날수 없습니다.");
-				System.out.println("다시 입력해주세요");
-				continue;
-			}
-			else
-			{
-				j2--;
-			}
-			break;			
-		case 6:
-		
-			if(j1==a-1) 
-			{
-				System.out.println("밖을 벗어날수 없습니다.");
-				System.out.println("다시 입력해주세요");
-				continue;
-			}
-			else
-			{
-				j2++;
-			}
-			break;	
-		}
+//		switch(move)
+//		{
+//		case 8 : 
+//		
+//			if(i1==0)
+//			{
+//				System.out.println("밖을 벗어날수 없습니다.");
+//				System.out.println("다시 입력해주세요");
+//				continue;
+//			}
+//			else 
+//			{
+//				
+//				i2--;				
+//			}
+//			break;
+//		
+//		case 2 :
+//		
+//			if(i1==a-1)		
+//			{
+//				System.out.println("밖을 벗어날수 없습니다.");
+//				System.out.println("다시 입력해주세요");
+//				continue;
+//			}
+//			else
+//			{
+//				i2++;
+//			}
+//			break;
+//		
+//		case 4 :
+//			if(j1==0)		
+//			{
+//				System.out.println("밖을 벗어날수 없습니다.");
+//				System.out.println("다시 입력해주세요");
+//				continue;
+//			}
+//			else
+//			{
+//				j2--;
+//			}
+//			break;			
+//		case 6:
+//		
+//			if(j1==a-1) 
+//			{
+//				System.out.println("밖을 벗어날수 없습니다.");
+//				System.out.println("다시 입력해주세요");
+//				continue;
+//			}
+//			else
+//			{
+//				j2++;
+//			}
+//			break;	
+//		}
 	}
 
 
