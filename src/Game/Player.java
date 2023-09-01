@@ -8,11 +8,17 @@ public class Player {
 	protected int monsterCount;
 	protected int fieldSize;
 	protected int playerMove;
-	protected int xa;
-	protected int xb;
-	protected int ya;
-	protected int yb;
-
+	
+	
+	
+	public void setPlayerHp(int hp)
+	{
+		this.hp =hp;		
+	}
+	public int getPlayerHp()
+	{
+		return hp;
+	}
 	public void setPlayer(int playerX, int playerY)
 	{
 		this.playerX = playerX;
@@ -36,80 +42,84 @@ public class Player {
 	}
 	public void playerMove(int[][] field,int playerMove)
 	{
-		while(true) {
-			for(int i=0;i<field.length;i++)
-			{
-				for(int j=0;j<field[i].length;j++)
-				{
-					if(field[i][j]==0) 
-					{	
-						xa=i;
-						xb=i;
-						ya=j;
-						yb=j;
-					}
-				}
-				
-			}
+
+		int moveX = playerX;
+		int moveY = playerY;
+//		while(true)
+//		{
+
+
 			switch(playerMove)
 			{
-			case 8:
-				if(xa==0)
+			case 8 : 
+
+				if(playerX==0)
 				{
 					System.out.println("밖을 벗어날수 없습니다.");
 					System.out.println("다시 입력해주세요");
-					continue;
+					//continue;
 				}
 				else 
 				{
-					xb--;				
+
+					moveX--;
+					
 				}
 				break;
+
 			case 2 :
 
-				if(xa==fieldSize-1)		
+				if(playerX==fieldSize-1)		
 				{
 					System.out.println("밖을 벗어날수 없습니다.");
 					System.out.println("다시 입력해주세요");
-					continue;
+					//continue;
 				}
 				else
 				{
-					xb++;
+					moveX++;
 				}
 				break;
 
 			case 4 :
-				if(ya==0)		
+
+				if(playerY==0)		
 				{
 					System.out.println("밖을 벗어날수 없습니다.");
 					System.out.println("다시 입력해주세요");
-					continue;
+					//continue;
 				}
 				else
 				{
-					yb--;
+					moveY--;					
 				}
 				break;			
 			case 6:
 
-				if(ya==fieldSize-1) 
+				if(playerY==fieldSize-1) 
 				{
 					System.out.println("밖을 벗어날수 없습니다.");
 					System.out.println("다시 입력해주세요");
-					continue;
+					//continue;
 				}
 				else
 				{
-					yb++;
+					moveY++;
 				}
 				break;	
 			}
-			field[xa][ya] = field[xb][yb];
-			field[xb][yb] = 0;
+			
 
-		}
+			Move.move(field, playerX, playerY, moveX, moveY);
+			setPlayer(moveX, moveY);
+			
+		//}
+
+
 	}
 
-
 }
+
+
+
+

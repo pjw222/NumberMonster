@@ -2,11 +2,9 @@ package Game;
 
 public class NumberField  extends Player{
 	protected int[][] field;
-	protected Player player;
 
-	public void setPlayer(Player player) {
-		this.player = player;
-	}
+
+
 
 	public void SetFiled(int fieldSize)
 	{
@@ -18,7 +16,8 @@ public class NumberField  extends Player{
 				field[i][j] = i*fieldSize+j;
 			}
 		}
-		player.setPosition(fieldSize);
+		setPosition(fieldSize);
+		
 		Shuffle();
 
 		for(int i = 0; i<fieldSize; i++)
@@ -27,17 +26,21 @@ public class NumberField  extends Player{
 			{
 				if(field[i][j]==0)
 				{
-					player.playerX=i;
-					player.playerY=j;
+					playerX=i;
+					playerY=j;
 				}
 			}
 		}
-		field[player.playerX][player.playerY]=field[fieldSize-1][fieldSize-1];
+		
+		
+		
+		field[playerX][playerY]=field[fieldSize-1][fieldSize-1];
 		field[fieldSize-1][fieldSize-1]=0;
+		setPlayer(fieldSize-1,fieldSize-1);
 
 		for(int i = 0; i <fieldSize; i++)
 		{
-			for(int j = 0; j<player.fieldSize; j++)
+			for(int j = 0; j<fieldSize; j++)
 			{
 				if(field[i][j]==0)
 				{					
@@ -50,7 +53,7 @@ public class NumberField  extends Player{
 				}
 
 			}
-			if(player.fieldSize%player.fieldSize==0)
+			if(fieldSize%fieldSize==0)
 			{
 				System.out.print("\n\n");
 			}
@@ -60,12 +63,12 @@ public class NumberField  extends Player{
 	}
 	public void Shuffle()
 	{
-		for(int i = 0; i<player.fieldSize;i++)
+		for(int i = 0; i<fieldSize;i++)
 		{		
-			for(int j = 0; j<player.fieldSize;j++)
+			for(int j = 0; j<fieldSize;j++)
 			{	
-				int c=(int)(Math.random()*player.fieldSize);
-				int d=(int)(Math.random()*player.fieldSize);
+				int c=(int)(Math.random()*fieldSize);
+				int d=(int)(Math.random()*fieldSize);
 				int temp = field[i][j];
 				field[i][j] = field[c][d];
 				field[c][d] = temp;			
@@ -75,6 +78,30 @@ public class NumberField  extends Player{
 	public void playerMove(int playerMove)
 	{
 		super.playerMove(field, playerMove);
+	}
+
+	public void print()
+	{
+		for(int i = 0; i <fieldSize; i++)
+		{
+			for(int j = 0; j<fieldSize; j++)
+			{
+				if(field[i][j]==0)
+				{					
+					System.out.print("Player\t");
+				}
+				else
+				{
+					System.out.print(field[i][j]+"\t");
+
+				}
+
+			}
+			if(fieldSize%fieldSize==0)
+			{
+				System.out.print("\n\n");
+			}
+		}
 	}
 	 
 }
