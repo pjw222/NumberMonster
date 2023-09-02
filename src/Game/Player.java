@@ -50,15 +50,18 @@ public class Player extends NumberMonster {
 		{		
 			for(int i = 0; i<monsters.length;i++)
 			{
-				if(fieldSize*fieldSize-1>=monsters[i]&&monsters[i]>0)
+				if(fieldSize*fieldSize-1>=monsters[i])
+				{
+					System.out.println("지정할수 있는 숫자몬스터는"+(fieldSize*fieldSize-1)+"안에 범위 입니다.");
+					System.out.println("지정할 숫자몬스터"+(i+1)+":");					
+					monsters[i]=sc.nextInt();
+					
+				}
+				else if(fieldSize*fieldSize-1<monsters[i])
 				{
 					System.out.println("다시 입력해주세요");
 					continue;
-				}
-				else {
-					System.out.println("지정할수 있는 숫자몬스터는"+fieldSize*fieldSize+"안에 범위 입니다.");
-					System.out.println("지정할 숫자몬스터"+(i+1)+":");
-					monsters[i]=sc.nextInt();
+
 				}
 			}
 			for(int i= 0; i<monsters.length;i++)
