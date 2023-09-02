@@ -12,13 +12,15 @@ public class Main {
 		NumberMonster monster = new NumberMonster();
 		player.setPlayerHp(50);
 		monster.setMonsterHp(50);
-				
 		Scanner sc = new Scanner(System.in);
-		
-		
-		
-		
+		System.out.println("숫자판의 크키를 지정해주세요");
 		player.fieldSize = sc.nextInt();
+		
+		System.out.println("잡고싶은 마릿수룰 입력하세요.");
+		player.monsterCount = sc.nextInt();
+		player.setMonsters(player.monsters, player.monsterCount);
+
+		
 		
 		numberfield.SetFiled(player.fieldSize);
 		player.setPlayer(player.fieldSize-1, player.fieldSize-1);
