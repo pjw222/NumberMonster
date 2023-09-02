@@ -15,6 +15,9 @@ public class Main {
 				
 		Scanner sc = new Scanner(System.in);
 		
+		
+		
+		
 		player.fieldSize = sc.nextInt();
 		
 		numberfield.SetFiled(player.fieldSize);
