@@ -1,6 +1,6 @@
 package Game;
 
-public class NumberField  extends Player{
+public class NumberField  extends Battle{
 	protected int[][] field;
 
 

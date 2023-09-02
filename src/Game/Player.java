@@ -1,6 +1,6 @@
 package Game;
 
-public class Player {
+public class Player extends NumberMonster {
 	protected int hp;
 	protected int playerX;
 	protected int playerY;

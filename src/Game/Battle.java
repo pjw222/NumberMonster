@@ -3,18 +3,17 @@ package Game;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Battle  {
+public class Battle extends Player {
 	protected int myDice;
 	protected int monsterDice;
-	protected Player player;
-	protected NumberMonster monster;
 	protected int count;
-	public void Battle()
+	public void Battle(int playerHp, int monsterHp)
 	{
-		player.setPlayerHp(player.hp);
-		monster.setMonsterHp(monster.hp);
-		player.hp =50;
-		monster.hp =50;
+		
+		setPlayerHp(playerHp);
+		setMonsterHp(monsterHp);
+	    
+		
 		String start;
 		count =1;
 		System.out.println("야생의 숫자를 만났다.");
@@ -32,13 +31,13 @@ public class Battle  {
 
 			System.out.println("당신의 주사위의 합은 "+myDice+" 입니다");
 			System.out.println("몬스터의 주사위의 합은 "+monsterDice+" 입니다");
-			System.out.println("현재 당신의 HP : "+player.hp);
-			System.out.println("현재 몬스터의 HP : "+monster.hp);
+			System.out.println("현재 당신의 HP : "+playerHp);
+			System.out.println("현재 몬스터의 HP : "+monsterHp);
 
 			if(myDice>monsterDice)
 			{
 				System.out.println("당신이 이겼습니다.");
-				monster.hp-=myDice;		
+				monsterHp-=myDice;		
 			}
 			else if(myDice==monsterDice)
 			{
@@ -48,19 +47,19 @@ public class Battle  {
 			else if(myDice<monsterDice)
 			{
 				System.out.println("당신이 졋습니다.");
-				player.hp-= monsterDice;
+				playerHp-= monsterDice;
 			}
-			System.out.println("현재 남은 당신의 HP : "+player.hp);
-			System.out.println("현재 남은 몬스터의 HP : "+monster.hp);
+			System.out.println("현재 남은 당신의 HP : "+playerHp);
+			System.out.println("현재 남은 몬스터의 HP : "+monsterHp);
 			System.out.println("다음턴을 가고싶으면 엔터를 눌러주세요");
 			count++;
 			
-			if(player.hp<=0)
+			if(playerHp<=0)
 			{
 				System.out.println("패배했습니다.");
 				break;
 			}
-			if(player.hp<=0)
+			if(monsterHp<=0)
 			{
 				System.out.println("승리했습니다.");
 				break;

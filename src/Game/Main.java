@@ -2,6 +2,7 @@ package Game;
 
 import java.util.Scanner;
 
+
 public class Main {
 	public static void main(String[] args)
 	{
@@ -20,7 +21,7 @@ public class Main {
 		player.setPlayer(player.fieldSize-1, player.fieldSize-1);
 //		System.out.println(player.getPlayerX());
 //		System.out.println(player.getPlayerY());
-		battle.Battle();
+		battle.Battle(50, 50);
 		System.out.println("2 : 하 / 8 : 상 / 4 : 좌 / 6 : 우 ");
 		while(true)
 		{			
