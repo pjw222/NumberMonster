@@ -6,13 +6,11 @@ import java.util.Scanner;
 public class Battle  {
 	protected int myDice;
 	protected int monsterDice;
-	protected Player player;
-	protected NumberMonster monster;
 	protected int count;
 	public void Battle()
 	{
-		player.setPlayerHp(player.hp);
-		monster.setMonsterHp(monster.hp);
+		player.setPlayerHp(50);
+		monster.setMonsterHp(50);
 		player.hp =50;
 		monster.hp =50;
 		String start;
