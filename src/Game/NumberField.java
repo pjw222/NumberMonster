@@ -1,6 +1,6 @@
 package Game;
 
-public class NumberField  extends Player{
+public class NumberField  extends Battle{
 	protected int[][] field;
 
 
@@ -24,6 +24,8 @@ public class NumberField  extends Player{
 		{
 			for(int j = 0; j<fieldSize; j++)
 			{
+				moveX=i;
+				moveY=j;
 				if(field[i][j]==0)
 				{
 					playerX=i;
@@ -31,8 +33,7 @@ public class NumberField  extends Player{
 				}
 			}
 		}
-		
-		
+	
 		
 		field[playerX][playerY]=field[fieldSize-1][fieldSize-1];
 		field[fieldSize-1][fieldSize-1]=0;
@@ -49,15 +50,16 @@ public class NumberField  extends Player{
 				else
 				{
 					System.out.print(field[i][j]+"\t");
-
 				}
 
 			}
 			if(fieldSize%fieldSize==0)
 			{
 				System.out.print("\n\n");
+				
 			}
 		}
+		
 		
 
 	}
@@ -103,5 +105,6 @@ public class NumberField  extends Player{
 			}
 		}
 	}
+
 	 
 }

@@ -1,16 +1,22 @@
 package Game;
 
-public class Player {
+import java.util.Scanner;
+
+
+public class Player extends NumberMonster {
 	protected int hp;
 	protected int playerX;
 	protected int playerY;
-	protected int[] monster;
+	protected int[] monsters;
 	protected int monsterCount;
 	protected int fieldSize;
 	protected int playerMove;
+	protected int inCounter;
+	protected int playerPos;
+	protected int moveX;
+	protected int moveY;
 	
-	
-	
+
 	public void setPlayerHp(int hp)
 	{
 		this.hp =hp;		
@@ -40,11 +46,62 @@ public class Player {
 	{
 		return playerY;
 	}
+	public int getPlayerPos()
+	{
+		return playerPos;
+	}
+	public void setPlayerPos(int playerPos)
+	{
+		this.playerPos = playerPos;
+	}
+
+	public void setMonsters(int[] monsters, int monsterCount)
+	{
+		Scanner sc = new Scanner(System.in);
+		monsters = new int[monsterCount];
+		int size = fieldSize*fieldSize;
+		while(true)
+		{		
+			System.out.println("지정할수 있는 숫자몬스터는"+(size-1)+"안에 범위 입니다.");
+			
+			for(int i = 0; i<monsters.length;i++)
+			{	
+				
+				System.out.println("지정할 숫자몬스터"+(i+1)+":");
+				int num =sc.nextInt();				
+				if(size-1 < num || num<1) {
+					i--;
+					System.out.println("범위를 넘어갑니다. 다시입력해주세요");
+					continue;
+				}
+				for(int j = 0; j<monsters.length;j++)
+				{
+					if(num==monsters[j])
+					{
+						System.out.println("같은 숫자입니다 다시입력해주세요");
+						i--;
+						continue;
+					}
+				}
+				monsters[i]=num;
+	
+			}
+			
+			for(int i= 0; i<monsters.length;i++)
+			{					
+				System.out.println("지정한 숫자몬스터" +(i+1)+": "+monsters[i]);							
+			}
+			break;
+		}
+
+	}
 	public void playerMove(int[][] field,int playerMove)
 	{
 
-		int moveX = playerX;
-		int moveY = playerY;
+		  moveX = playerX;
+		  moveY = playerY;
+		  
+
 //		while(true)
 //		{
 
@@ -108,15 +165,21 @@ public class Player {
 				}
 				break;	
 			}
+			 
+			if(BattleScene.inCounter(inCounter))
+			{
+				playerPos=field[moveX][moveY];
+				Battle battle = new Battle();
+				battle.Battle(this,50, 50);
+				inCounter=0;
+			}
 			
-
-			Move.move(field, playerX, playerY, moveX, moveY);
-			setPlayer(moveX, moveY);
-			
-		//}
-
-
+			 Move.move(field, playerX, playerY, moveX, moveY);
+						
+			inCounter+=10;			
+			setPlayer(moveX, moveY);			
 	}
+	
 
 }
 
