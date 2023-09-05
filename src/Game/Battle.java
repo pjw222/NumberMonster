@@ -9,8 +9,9 @@ public class Battle extends Player {
 	protected int monsterDice;
 	protected int count;
 	protected int endCount;
-	public void Battle(Player player, int playerHp, int monsterHp)
+	public void Battle(int playerHp, int monsterHp)
 	{
+
 		NumberField fields = new NumberField();
 		setPlayerHp(playerHp);
 		setMonsterHp(monsterHp);
@@ -18,7 +19,9 @@ public class Battle extends Player {
 		
 		String start;
 		count =1;
-		System.out.println("야생의 숫자"+player.playerPos+"를 만났다.");
+		endCount =0;
+		System.out.println("야생의 숫자"+playerPos+"를 만났다.");
+		System.out.println(monsterCount);
 		while(true)
 		{
 			
@@ -64,18 +67,27 @@ public class Battle extends Player {
 			if(monsterHp<=0)
 			{
 				System.out.println("승리했습니다.");
+				
 				for(int i=0;i<monsterCount;i++)
 				{
-					System.out.println(monsterCount);
+
 					if(playerPos==monsters[i])
 					{
 						endCount++;
-						System.out.println("현재 잡은 숫자몬스터 수:"+endCount);
+						System.out.println("현재 잡은 지정 숫자몬스터 :"+monsters[i]);
 					}	
+				}
+				
+				System.out.println("현재 잡은 지정 숫자몬스터 수:"+endCount);
+				if(endCount==monsterCount)
+				{
+					System.out.println("다잡음요");
+					System.exit(1);
+//					break;
 				}
 				break;
 			}
 		}
 	}
-	
+
 }

@@ -15,6 +15,8 @@ public class Player extends NumberMonster {
 	protected int playerPos;
 	protected int moveX;
 	protected int moveY;
+	protected int endCount;
+
 	
 
 	public void setPlayerHp(int hp)
@@ -170,7 +172,15 @@ public class Player extends NumberMonster {
 			{
 				playerPos=field[moveX][moveY];
 				Battle battle = new Battle();
-				battle.Battle(this,50, 50);
+				battle.monsterCount=monsterCount;
+				battle.monsters=monsters;				
+				battle.playerPos=playerPos;
+				battle.endCount=endCount;
+				for(int i=0;i<monsters.length;i++)
+				{
+					System.out.println(monsters[i]);
+				}
+				battle.Battle(50, 5);
 				inCounter=0;
 			}
 			

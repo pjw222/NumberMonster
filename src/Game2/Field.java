@@ -1,9 +1,8 @@
-package Game;
-
-public class NumberField  extends Battle{
-	protected int[][] field;
+package Game2;
 
 
+public class Field {
+	private int[][] field;
 
 
 	public void SetFiled(int fieldSize)
@@ -16,6 +15,7 @@ public class NumberField  extends Battle{
 				field[i][j] = i*fieldSize+j;
 			}
 		}
+		
 		setPosition(fieldSize);
 		
 		Shuffle();
@@ -28,8 +28,8 @@ public class NumberField  extends Battle{
 				moveY=j;
 				if(field[i][j]==0)
 				{
-					playerX=i;
-					playerY=j;
+					x=i;
+					y=j;
 				}
 			}
 		}
@@ -77,34 +77,5 @@ public class NumberField  extends Battle{
 			}
 		}
 	}
-	public void playerMove(int playerMove)
-	{
-		playerMove(field, playerMove);
-	}
 
-	public void print()
-	{
-		for(int i = 0; i <fieldSize; i++)
-		{
-			for(int j = 0; j<fieldSize; j++)
-			{
-				if(field[i][j]==0)
-				{					
-					System.out.print("Player\t");
-				}
-				else
-				{
-					System.out.print(field[i][j]+"\t");
-
-				}
-
-			}
-			if(fieldSize%fieldSize==0)
-			{
-				System.out.print("\n\n");
-			}
-		}
-	}
-
-	 
 }
