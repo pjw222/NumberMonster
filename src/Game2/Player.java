@@ -44,7 +44,7 @@ public class Player {
 	{
 		this.fieldSize= fieldSize;
 	}
-	public int getFiledSize()
+	public int getFieldSize()
 	{
 		return fieldSize;
 	}

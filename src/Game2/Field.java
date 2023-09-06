@@ -1,12 +1,19 @@
 package Game2;
 
 
-public class Field {
+public class Field extends Player {
 	private int[][] field;
-
+	
+	int moveX= getPlayerX();
+	int moveY= getPlayerY();
+	int x= getMoveX();
+	int y= getMoveY();
+	int fieldSize = getFieldSize();
+	
 
 	public void SetFiled(int fieldSize)
 	{
+		
 		field = new int[fieldSize][fieldSize];
 		for(int i = 0; i<fieldSize; i++)
 		{
@@ -14,10 +21,9 @@ public class Field {
 			{
 				field[i][j] = i*fieldSize+j;
 			}
-		}
-		
+		}		
 		setPosition(fieldSize);
-		
+
 		Shuffle();
 
 		for(int i = 0; i<fieldSize; i++)
@@ -33,9 +39,8 @@ public class Field {
 				}
 			}
 		}
-	
-		
-		field[playerX][playerY]=field[fieldSize-1][fieldSize-1];
+
+		field[x][y]=field[fieldSize-1][fieldSize-1];
 		field[fieldSize-1][fieldSize-1]=0;
 		setPlayer(fieldSize-1,fieldSize-1);
 
@@ -56,11 +61,10 @@ public class Field {
 			if(fieldSize%fieldSize==0)
 			{
 				System.out.print("\n\n");
-				
+
 			}
 		}
-		
-		
+
 
 	}
 	public void Shuffle()
