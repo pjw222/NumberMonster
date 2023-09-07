@@ -1,6 +1,6 @@
 package Game;
 
-public class Move {
+public class Move extends Player{
 	protected Player player;
 	
 	public static void move
