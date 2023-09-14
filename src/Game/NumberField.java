@@ -24,8 +24,8 @@ public class NumberField  extends Battle{
 		{
 			for(int j = 0; j<fieldSize; j++)
 			{
-				moveX=i;
-				moveY=j;
+//				moveX=i;
+//				moveY=j;
 				if(field[i][j]==0)
 				{
 					playerX=i;

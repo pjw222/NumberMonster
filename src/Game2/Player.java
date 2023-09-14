@@ -14,6 +14,44 @@ public class Player {
 	private int moveY;
 	private int endCount;
 	
+	
+	public void setMove(int move)
+	{
+		this.move = move;
+	}
+	public int getMove()
+	{
+		return move;
+	}
+	public void setInCounter(int inCounter)
+	{
+		this.inCounter = inCounter;
+	}
+	public int getInCounter()
+	{
+		return inCounter;
+	}
+	public void setEndCount(int endCount)
+	{
+		this.endCount = endCount;
+	}
+	public int getEndCount()
+	{
+		return endCount;
+	}
+	public void setMonsters(int[] monsters, int monsterCount)
+	{
+		this.monsters = monsters;
+		this.monsterCount = monsterCount;
+	}
+	public int[] getMonsters()
+	{
+		return monsters;
+	}
+	public int getMonsterCounter()
+	{
+		return monsterCount;
+	}
 	public void setPlayerHp(int hp)
 	{
 		this.hp =hp;		
@@ -27,7 +65,7 @@ public class Player {
 		this.x = x;
 		this.y = y;
 	}
-	public void setMove(int moveX, int moveY)
+	public void setMoving(int moveX, int moveY)
 	{
 		this.moveX = moveX;
 		this.moveY = moveY;
@@ -50,11 +88,11 @@ public class Player {
 	}
 	public int getPlayerX()
 	{
-		return y;
+		return x;
 	}
 	public int getPlayerY()
 	{
-		return x;
+		return y;
 	}
 	public int getPlayerPos()
 	{
