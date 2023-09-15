@@ -1,5 +1,7 @@
 package Game2;
 
+import java.util.Scanner;
+
 public class Player {
 	private int hp;
 	private int x;
@@ -39,16 +41,59 @@ public class Player {
 	{
 		return endCount;
 	}
-	public void setMonsters(int[] monsters, int monsterCount)
+	public void setMonsters(int[] monsters)
 	{
 		this.monsters = monsters;
-		this.monsterCount = monsterCount;
+	}
+	public void setMonsterCount(int monsterCount)
+	{
+		this.monsterCount=monsterCount;
+	}
+	public void choiceMonsters()
+	{
+		Scanner sc = new Scanner(System.in);
+//		monsterCount = getMonsterCount();
+//		monsters = getMonsters();
+		monsters = new int[monsterCount];
+		int size = fieldSize*fieldSize-1;
+		while(true)
+		{
+			System.out.println("지정할수 있는 숫자몬스터는"+size+"안에 범위 입니다.");
+			
+			for(int i = 0; i<monsters.length; i++)
+			{
+				System.out.println("지정할 숫자몬스터"+(i+1)+ " : " );
+				int num = sc.nextInt();
+				if(size < num || num <1)
+				{
+					i--;
+					System.out.println("범위를 넘어갑니다. 다시 입력해주세요");
+					continue;
+				}
+				for(int j = 0; j<monsters.length; j++)
+				{
+					if(num==monsters[j])
+					{
+						System.out.println("같은 숫자몬스터를 지정했습니다. 다시 지정해주세요");
+						i--;
+						continue;
+					}
+				}
+				monsters[i]=num;
+			}
+			
+			for(int i = 0; i<monsters.length; i++)
+			{
+				System.out.println("지정한 숫자 몬스터" +(i+1)+ " : "+monsters[i]);
+			}
+			break;
+		}
 	}
 	public int[] getMonsters()
 	{
 		return monsters;
 	}
-	public int getMonsterCounter()
+	public int getMonsterCount()
 	{
 		return monsterCount;
 	}

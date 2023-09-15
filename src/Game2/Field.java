@@ -1,10 +1,13 @@
 package Game2;
 
 
-public class Field extends Move {
+public class Field  {
 	private int[][] field;
-	
-	public void SetFiled(int fieldSize)
+	public int[][] getField()
+	{
+		return field;
+	}
+	public void SetFiled(int fieldSize, Player player)
 	{
 		
 		
@@ -77,10 +80,10 @@ public class Field extends Move {
 			}
 		}
 	}
-	public void moving(int select)
-	{
-		super.playerMove(field, select);
-	}
+//	public void moving(int select)
+//	{
+//		super.playerMove(field, select);
+//	}
 	public void print(int fieldSize)
 	{
 		for(int i = 0; i <fieldSize; i++)

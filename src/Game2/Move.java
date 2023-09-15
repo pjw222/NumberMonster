@@ -4,6 +4,8 @@ public class Move  {
 	protected Player player=new Player();
 	protected Monster monster = new Monster();
 	protected Battle battle = new Battle();
+	
+	
 	public static void move
 	(int[][] arr, int idx1X, int idx1Y, int idx2X, int idx2Y) 
 	{
@@ -80,7 +82,7 @@ public class Move  {
 			break;	
 		}
 		
-		player.setPlayerHp(field[moveX][moveY]);
+		player.setPlayerPos(field[moveX][moveY]);
 		if(battle.inCounter(player.getInCounter()))
 		{
 			battle.battleStart(player, monster);
