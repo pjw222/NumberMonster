@@ -51,7 +51,7 @@ public class Field  {
 				}
 				else
 				{
-					System.out.print(field[i][j]+"\t");
+					System.out.print("#"+"\t");
 				}
 
 			}
@@ -96,7 +96,7 @@ public class Field  {
 				}
 				else
 				{
-					System.out.print(field[i][j]+"\t");
+					System.out.print("#"+"\t");
 				}
 
 			}

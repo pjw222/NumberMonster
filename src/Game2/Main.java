@@ -11,21 +11,19 @@ public class Main {
 		int fieldSize ;
 		int moveSelect;
 		int monsterCount= 0;
-//		int[] monster = new int[monsterCount];
-		
+
+		System.out.println("넘버 몬스터 시작");
 		Scanner sc = new Scanner(System.in);
-		System.out.println();
+		System.out.println("플레이 하고싶은 필드 범위를 지정해주세요");
 		fieldSize = sc.nextInt();
 		move.player.setPosition(fieldSize);
+		System.out.println("잡고싶은 몬스터 마릿수를 지정해주세요");
 		monsterCount = sc.nextInt();
-//		move.player.setMonsters(monster);
 		move.player.setMonsterCount(monsterCount);
 		move.player.choiceMonsters();
 		field.SetFiled(fieldSize, move.player);
 		
-//		System.out.println(field.player);
-		System.out.println(move.player.getMonsterCount());
-		System.out.println(move.player.getMonsters().length);
+
 		while(true)
 		{
 			moveSelect = sc.nextInt();
