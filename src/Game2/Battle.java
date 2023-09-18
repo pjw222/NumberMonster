@@ -33,6 +33,7 @@ public class Battle {
 			if(myDice>monsterDice)
 			{
 				System.out.println("당신이 이겼습니다.");
+				System.out.println(myDice+" 만큼 데미지를 줍니다.");
 				monster.setMonsterHp(monster.getMonsterHp()-myDice);
 
 			}
@@ -44,7 +45,9 @@ public class Battle {
 			else if(myDice<monsterDice)
 			{
 				System.out.println("당신이 졋습니다.");
+				System.out.println(monsterDice+" 만큼 피해를 입습니다.");
 				player.setPlayerHp(player.getPlayerHp()-monsterDice);
+				
 
 			}
 			System.out.println("현재 남은 당신의 HP : "+player.getPlayerHp());
