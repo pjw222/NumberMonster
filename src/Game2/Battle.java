@@ -11,10 +11,8 @@ public class Battle {
 
 	public void battleStart(Player player, Monster monster)
 	{
-		System.out.println(player.getMonsterCount());
-		System.out.println(player.getMonsters().length);
-		player.setPlayerHp(100);
-		monster.setMonsterHp(5);
+		player.setPlayerHp(50);
+		monster.setMonsterHp(50);
 
 		String start;
 		count =1;
@@ -62,7 +60,6 @@ public class Battle {
 			else if(monster.getMonsterHp()<=0)
 			{
 				System.out.println("승리 했습니다."); //승리
-				System.out.println(player.getMonsters().length);
 				int[] catchMonster = player.getMonsters();
 				for(int i=0;i<player.getMonsterCount();i++)
 				{
