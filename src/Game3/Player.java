@@ -1,6 +1,7 @@
 package Game3;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -8,70 +9,63 @@ public class Player {
 	private int hp;
 	private int x;
 	private int y;
-	private Set<Integer> targetMonster = new HashSet<Integer>();
+	private Set<Integer> targetMonster = new LinkedHashSet<Integer>();
 	private Set<Integer> catchMonster = new HashSet<Integer>();
-	private int inCounter;
+
 	private int playerPos;
-	private int endCount;
-	
-	
 
 
-	public void setInCounter(int inCounter)
-	{
-		this.inCounter = inCounter;
+	public void setTargetMonster()
+	{	
+		Scanner sc = new Scanner(System.in);
+		int targetMonster = sc.nextInt();
+
+		this.targetMonster.add(targetMonster);
 	}
-	public int getInCounter()
+	public Set<Integer> getTargetMonster()
 	{
-		return inCounter;
+		return targetMonster;
 	}
-	public void setEndCount(int endCount)
+	public void setSize()
 	{
-		this.endCount = endCount;
+		Scanner sc = new Scanner(System.in);
+		int count = 1;
+		int size = sc.nextInt();
+		while(targetMonster.size()!=size)
+		{
+			System.out.println(count +" 번째 몬스터");
+			int checkSize = targetMonster.size();
+			setTargetMonster();
+			if(targetMonster.size()!=checkSize) {
+
+				count++;
+			}
+			else if(targetMonster.size()==checkSize)
+			{
+				System.out.println("동일한 몬스터를 입력했습니다 다시입력해주세요");
+			}
+
+		}	
+		System.out.println("내가 잡아야하는 몬스터 : "+targetMonster);
 	}
-	public int getEndCount()
+	public void setCatchMonster(Set<Integer> catchMonster)
 	{
-		return endCount;
+		this.catchMonster = catchMonster;
+		
+	}
+	public Set<Integer> getCatchMonster()
+	{
+		return catchMonster;
 	}
 
-//	public void choiceMonsters()
-//	{
-//		Scanner sc = new Scanner(System.in);
-//		monsters = new int[monsterCount];
-//		int size = fieldSize*fieldSize-1;
-//		while(true)
-//		{
-//			System.out.println("지정할수 있는 숫자몬스터는"+size+"안에 범위 입니다.");
-//			
-//			for(int i = 0; i<monsters.length; i++)
-//			{
-//				System.out.println("지정할 숫자몬스터"+(i+1)+ " : " );
-//				int num = sc.nextInt();
-//				if(size < num || num <1)
-//				{
-//					i--;
-//					System.out.println("범위를 넘어갑니다. 다시 입력해주세요");
-//					continue;
-//				}
-//				for(int j = 0; j<monsters.length; j++)
-//				{
-//					if(num==monsters[j])
-//					{
-//						System.out.println("같은 숫자몬스터를 지정했습니다. 다시 지정해주세요");
-//						i--;
-//						continue;
-//					}
-//				}
-//				monsters[i]=num;
-//			}
-//			
-//			for(int i = 0; i<monsters.length; i++)
-//			{
-//				System.out.println("지정한 숫자 몬스터" +(i+1)+ " : "+monsters[i]);
-//			}
-//			break;
-//		}
-//	}
+	public int getCatchSize()
+	{
+		return catchMonster.size();
+	}
+	public int getTargetSize()
+	{
+		return targetMonster.size();
+	}
 
 	public void setPlayerHp(int hp)
 	{

@@ -44,42 +44,33 @@ public class Field  {
 				}
 			}
 		}
-//		int checkX = player.getPlayerX();
-//		int checkY = player.getPlayerY();
-		field[player.getPlayerX()][player.getPlayerY()]=field[fieldSize-1][fieldSize-1];
-		field[fieldSize-1][fieldSize-1]=0;
+
+//		field[player.getPlayerX()][player.getPlayerY()]=field[fieldSize-1][fieldSize-1];
+//		field[fieldSize-1][fieldSize-1]=0;
 		player.setPlayer(fieldSize-1,fieldSize-1);
-		
 		print(fieldSize,player);
+	
 
 	}
 	public void Shuffle()
 	{
-		
-		
 		for(int i = 0; i<field.length;i++)
 		{		
 			for(int j = 0; j<field.length;j++)
 			{	
 				int c=(int)(Math.random()*field.length);
 				int d=(int)(Math.random()*field.length);
-				int temp = field[i][j];
-				field[i][j] = field[c][d];
-				field[c][d] = temp;			
+				Util.move(field, c, d, i, j);		
 			}
 		}
 	}
-//	public void moving(int select)
-//	{
-//		super.playerMove(field, select);
-//	}
 	public void print(int fieldSize, Player player)
 	{
 		for(int i = 0; i <fieldSize; i++)
 		{
 			for(int j = 0; j<fieldSize; j++)
 			{
-				if(field[i][j]==field[player.getPlayerY()][player.getPlayerX()])
+				if(field[i][j]==field[player.getPlayerX()][player.getPlayerY()])
 				{					
 					System.out.print("Player\t");
 				}

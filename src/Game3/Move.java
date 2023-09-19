@@ -2,7 +2,7 @@ package Game3;
 
 public class Move  {
 
-	public boolean playerMove(int[][] field,int move, Field field1, Player player)
+	public boolean playerMove(int[][] field1,int move, Field field, Player player)
 	{
 
 		int playerX=player.getPlayerX();
@@ -14,69 +14,70 @@ public class Move  {
 		{
 		case 8 : 
 
-			if(playerX<=0)
+			if(playerX==0)
 			{
 				System.out.println("밖을 벗어날수 없습니다.");
 				System.out.println("다시 입력해주세요");
-				return false;
+				
 			}
 			else 
 			{
 
 				movePlayerX--;
-				return true;
+				
 			}
-
+			break;
 
 		case 2 :
 
-			if(playerX==field1.getFieldSize()-1)		
+			if(playerX==field.getFieldSize()-1)		
 			{
 				System.out.println("밖을 벗어날수 없습니다.");
 				System.out.println("다시 입력해주세요");
-				return false;
+				
 			}
 			else
 			{
 				movePlayerX++;
-				return true;
+				
 			}
 
-
+			break;
 		case 4 :
 
-			if(playerY<=0)		
+			if(playerY==0)		
 			{
 				System.out.println("밖을 벗어날수 없습니다.");
 				System.out.println("다시 입력해주세요");
-				return false;
+				
 			}
 			else
 			{
 				movePlayerY--;
-				return true;
+				
 			}
-
+			break;
 		case 6:
 
-			if(playerY==field1.getFieldSize()-1) 
+			if(playerY==field.getFieldSize()-1) 
 			{
 				System.out.println("밖을 벗어날수 없습니다.");
 				System.out.println("다시 입력해주세요");
-				return false;
+				
 			}
 			else
 			{
 				movePlayerY++;
-				return true;
+			
 			}
-			Util.move(field, playerX, playerY, movePlayerX, movePlayerY); 
-			player.setPlayer(movePlayerX, movePlayerY);
-
-			return false;
+			break;
 		}
+		player.setPlayerPos(field1[movePlayerX][movePlayerY]);
+		player.setPlayer(movePlayerX, movePlayerY);
+		return true;
+
 	}
-	
+
 }
 
 
