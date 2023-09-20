@@ -13,71 +13,35 @@ public class Move  {
 		switch(move)
 		{
 		case 8 : 
-
-			if(playerX==0)
-			{
-				System.out.println("밖을 벗어날수 없습니다.");
-				System.out.println("다시 입력해주세요");
-				
-			}
-			else 
-			{
-
 				movePlayerX--;
-				
-			}
 			break;
-
 		case 2 :
-
-			if(playerX==field.getFieldSize()-1)		
-			{
-				System.out.println("밖을 벗어날수 없습니다.");
-				System.out.println("다시 입력해주세요");
-				
-			}
-			else
-			{
 				movePlayerX++;
-				
-			}
-
 			break;
 		case 4 :
-
-			if(playerY==0)		
-			{
-				System.out.println("밖을 벗어날수 없습니다.");
-				System.out.println("다시 입력해주세요");
-				
-			}
-			else
-			{
 				movePlayerY--;
-				
-			}
 			break;
 		case 6:
-
-			if(playerY==field.getFieldSize()-1) 
-			{
-				System.out.println("밖을 벗어날수 없습니다.");
-				System.out.println("다시 입력해주세요");
-				
-			}
-			else
-			{
 				movePlayerY++;
-			
-			}
 			break;
 		}
+		if(check(field1,movePlayerX,movePlayerY))return false;
 		player.setPlayerPos(field1[movePlayerX][movePlayerY]);
 		player.setPlayer(movePlayerX, movePlayerY);
 		return true;
-
 	}
-
+	
+	public boolean check(int[][] field,int playerX, int playerY)
+	{
+		if(playerX<0||playerX>field[0].length-1||playerY < 0||playerY >field.length-1)
+		{
+			System.out.println("범위를 벗어났습니다");
+			System.out.println("다시 입력해주세요");
+			return true;
+		}
+		
+		return false;
+	}
 }
 
 

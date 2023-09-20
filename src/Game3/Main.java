@@ -19,7 +19,8 @@ public class Main {
 		fieldSize = sc.nextInt();
 		field.setFieldSize(fieldSize);
 		System.out.println("잡고싶은 몬스터 마릿수를 지정해주세요");
-		player.setSize();
+
+		player.setSize(field);
 		
 		field.SetField(fieldSize,player);
 
