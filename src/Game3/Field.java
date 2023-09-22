@@ -45,8 +45,6 @@ public class Field  {
 			}
 		}
 
-//		field[player.getPlayerX()][player.getPlayerY()]=field[fieldSize-1][fieldSize-1];
-//		field[fieldSize-1][fieldSize-1]=0;
 		player.setPlayer(fieldSize-1,fieldSize-1);
 		print(fieldSize,player);
 	
@@ -76,7 +74,7 @@ public class Field  {
 				}
 				else
 				{
-					System.out.print(field[i][j]+"\t");
+					System.out.print("#"+"\t");
 				}
 
 			}

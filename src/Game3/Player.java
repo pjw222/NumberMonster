@@ -1,6 +1,7 @@
 package Game3;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -10,9 +11,9 @@ public class Player {
 	private int hp;
 	private int x;
 	private int y;
-	private Set<Integer> targetMonster = new TreeSet<Integer>();
+	private TreeSet<Integer> targetMonster = new TreeSet<Integer>();
 	private Set<Integer> catchMonster = new HashSet<Integer>();
-
+	
 	private int playerPos;
 
 
@@ -22,50 +23,70 @@ public class Player {
 		System.out.println("0부터 ~"+(field.getFieldSize()*field.getFieldSize()-1)+"까지 입니다.");
 		System.out.print("잡을 몬스터를 입력해주세요 : ");
 		Scanner sc = new Scanner(System.in);
+		try {
+			int targetMonster = sc.nextInt();
+			if(targetMonster<=field.getFieldSize()*field.getFieldSize()-1&&targetMonster>=0)
+			{
+				this.targetMonster.add(targetMonster);
+				return true;
+			}
+			else
+			{
+				System.out.println("범위를 벗어납니다");
+				return false;
+			}
+		}catch(Exception e)
+		{	
+			System.out.println("숫자만 입력해주세요");
+		}
+		return false;
 		
-		int targetMonster = sc.nextInt();	
-		if(targetMonster<=field.getFieldSize()*field.getFieldSize()-1&&targetMonster>=0)
-		{
-			this.targetMonster.add(targetMonster);
-			return true;
-		}
-		else
-		{
-			System.out.println("범위를 벗어납니다");
-			return false;
-		}
+	
 	}
 	public Set<Integer> getTargetMonster()
 	{
 		return targetMonster;
 	}
+	public int getTargetNext()
+	{
+		return targetMonster.first();
+	}
+	public int getTargetLast()
+	{
+		return targetMonster.last();
+	}
 	public void setSize(Field field)
 	{
 
 		Scanner sc = new Scanner(System.in);
-
-		int count = 1;
-		int size = sc.nextInt();
-		while(targetMonster.size()!=size)
+		try {
+			
+			int count = 1;
+			int size = sc.nextInt();
+			while(targetMonster.size()!=size)
+			{
+				System.out.println(count +" 번째 몬스터");
+				int checkSize = targetMonster.size();
+				if(!setTargetMonster(field))
+				{
+					continue;
+				}
+				if(targetMonster.size()!=checkSize) {
+					
+					count++;
+				}
+				
+				else if(targetMonster.size()==checkSize)
+				{
+					System.out.println("동일한 몬스터를 입력했습니다. 다시입력해주세요");
+				}
+			}	
+			System.out.println("내가 잡아야하는 몬스터 : "+targetMonster);
+		}catch(Exception e)
 		{
-			System.out.println(count +" 번째 몬스터");
-			int checkSize = targetMonster.size();
-			if(!setTargetMonster(field))
-			{
-				continue;
-			}
-			if(targetMonster.size()!=checkSize) {
-
-				count++;
-			}
-		
-			else if(targetMonster.size()==checkSize)
-			{
-				System.out.println("동일한 몬스터를 입력했습니다. 다시입력해주세요");
-			}
-		}	
-		System.out.println("내가 잡아야하는 몬스터 : "+targetMonster);
-	}
+			System.out.println("숫자만 입력해");
+		}
+		}
 	public void setCatchMonster(Set<Integer> catchMonster)
 	{
 		this.catchMonster = catchMonster;

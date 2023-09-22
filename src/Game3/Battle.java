@@ -9,7 +9,7 @@ public class Battle {
 	private int monsterDice;
 	private int count;
 	private int inCounter;
-	
+
 	public void setInCounter(int inCounter)
 	{
 		this.inCounter = inCounter;
@@ -19,19 +19,26 @@ public class Battle {
 		return inCounter;
 	}
 	public void battleStart(Player player, Monster monster)
-	{
-		player.setPlayerHp(50);
-		monster.setMonsterHp(5);
+	{ 
+		Random random = new Random();
+
+		int playerHp = random.nextInt(50)+10;
+		int monsterHp = random.nextInt(25)+10;
+		player.setPlayerHp(playerHp);
+		monster.setMonsterHp(monsterHp);
 
 		String start;
 		count =1;
 		System.out.println("야생의 숫자 "+player.getPlayerPos()+"(을)를 만났다");
+		System.out.println("랜덤으로 너와 몬스터의 피가 정해져!");
 
+		System.out.println("너의 Hp : "+player.getPlayerHp());
+		System.out.println("몬스터의 HP : "+monster.getMonsterHp());
 		while(true)
 		{
 
 			Scanner sc = new Scanner(System.in);
-			Random random = new Random();
+
 			System.out.println();
 			start = sc.nextLine();
 			System.out.println(count+"번째판입니다.");
@@ -56,7 +63,7 @@ public class Battle {
 				System.out.println("당신이 졋습니다.");
 				System.out.println(monsterDice+" 만큼 피해를 입습니다.");
 				player.setPlayerHp(player.getPlayerHp()-monsterDice);
-				
+
 
 			}
 			System.out.println("현재 남은 당신의 HP : "+player.getPlayerHp());
@@ -75,15 +82,15 @@ public class Battle {
 				if(player.getTargetMonster().contains(player.getPlayerPos()))
 				{
 					System.out.println("신난다 지정한 몬스터 : "+player.getPlayerPos()+"(을)를 잡았어!");
-				  player.getCatchMonster().add(player.getPlayerPos());	
-				  if(player.getTargetSize()==player.getCatchSize())
+					player.getCatchMonster().add(player.getPlayerPos());	
+					if(player.getTargetSize()==player.getCatchSize())
 					{
 						System.out.println("다 잡았어!");
 						System.out.println("게임종료!");
 						System.exit(1);
 					}
 				}
-				
+
 				break;
 			}
 

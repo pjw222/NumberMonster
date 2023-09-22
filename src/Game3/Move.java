@@ -1,6 +1,16 @@
 package Game3;
 
 public class Move  {
+	private int moveCount;
+	
+	public int getMoveCount()
+	{
+		return moveCount;
+	}
+	public void setMoveCount(int moveCount)
+	{
+		this.moveCount = moveCount;
+	}
 
 	public boolean playerMove(int[][] field1,int move, Field field, Player player)
 	{
@@ -28,6 +38,9 @@ public class Move  {
 		if(check(field1,movePlayerX,movePlayerY))return false;
 		player.setPlayerPos(field1[movePlayerX][movePlayerY]);
 		player.setPlayer(movePlayerX, movePlayerY);
+		
+		moveCount++;
+		
 		return true;
 	}
 	
