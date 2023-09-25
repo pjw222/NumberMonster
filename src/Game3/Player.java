@@ -13,7 +13,7 @@ public class Player {
 	private int y;
 	private TreeSet<Integer> targetMonster = new TreeSet<Integer>();
 	private Set<Integer> catchMonster = new HashSet<Integer>();
-	
+	private int monsterCount;
 	private int playerPos;
 
 
@@ -40,8 +40,6 @@ public class Player {
 			System.out.println("숫자만 입력해주세요");
 		}
 		return false;
-		
-	
 	}
 	public Set<Integer> getTargetMonster()
 	{
@@ -55,42 +53,58 @@ public class Player {
 	{
 		return targetMonster.last();
 	}
+	public void setMonsterCount(Field field)
+	{
+		Scanner sc = new Scanner(System.in);
+		while(!sc.hasNextInt()) {
+			sc.next();
+			System.out.println("숫자만 입력해주세요");
+			System.out.println("잡고싶은 마릿수를 지정해주세요!");
+		}
+		while(true)
+		{
+			monsterCount = sc.nextInt();
+			if(monsterCount<=field.getFieldSize()*field.getFieldSize()&&monsterCount>=1)
+			{
+				break;
+			}
+			else {
+				System.out.println("다시 입력해주세요");
+			}
+			
+		}
+	}
 	public void setSize(Field field)
 	{
-
-		Scanner sc = new Scanner(System.in);
-		try {
-			
-			int count = 1;
-			int size = sc.nextInt();
-			while(targetMonster.size()!=size)
-			{
-				System.out.println(count +" 번째 몬스터");
-				int checkSize = targetMonster.size();
-				if(!setTargetMonster(field))
-				{
-					continue;
-				}
-				if(targetMonster.size()!=checkSize) {
-					
-					count++;
-				}
-				
-				else if(targetMonster.size()==checkSize)
-				{
-					System.out.println("동일한 몬스터를 입력했습니다. 다시입력해주세요");
-				}
-			}	
-			System.out.println("내가 잡아야하는 몬스터 : "+targetMonster);
-		}catch(Exception e)
+		int count = 1;
+		while(targetMonster.size()!=monsterCount)
 		{
-			System.out.println("숫자만 입력해");
-		}
-		}
+			System.out.println(count +" 번째 몬스터");
+			int checkSize = targetMonster.size();
+			if(!setTargetMonster(field))
+			{
+				continue;
+			}
+			if(targetMonster.size()!=checkSize) {
+
+				count++;
+			}
+
+			else if(targetMonster.size()==checkSize)
+			{
+				System.out.println("동일한 몬스터를 입력했습니다. 다시입력해주세요");
+			}
+		}	
+		System.out.println("내가 잡아야하는 몬스터 : "+targetMonster);
+	}
+
+
+
+
 	public void setCatchMonster(Set<Integer> catchMonster)
 	{
 		this.catchMonster = catchMonster;
-		
+
 	}
 	public Set<Integer> getCatchMonster()
 	{
